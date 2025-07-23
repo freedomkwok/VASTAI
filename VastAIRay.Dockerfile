@@ -151,7 +151,7 @@ RUN \
         pocl-opencl-icd \
         opencl-headers \
         ocl-icd-dev \
-        ocl-icd-opencl-dev \
+        ocl-icd-opencl-dev && \
     # Ensure TensorRT where applicable
     if [ -n "${CUDA_VERSION:-}" ]; then \
         CUDA_MAJOR_MINOR=$(echo ${CUDA_VERSION} | cut -d. -f1,2) && \
