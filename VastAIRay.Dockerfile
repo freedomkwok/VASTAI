@@ -151,9 +151,7 @@ RUN \
         pocl-opencl-icd \
         opencl-headers \
         ocl-icd-dev \
-        ocl-icd-opencl-dev
-    RUN apt-get install -y nodejs 
-    
+        ocl-icd-opencl-dev \
     # Ensure TensorRT where applicable
     if [ -n "${CUDA_VERSION:-}" ]; then \
         CUDA_MAJOR_MINOR=$(echo ${CUDA_VERSION} | cut -d. -f1,2) && \
@@ -174,6 +172,7 @@ RUN \
                 apt-mark hold libnvinfer8 libnvinfer-plugin8 libnvonnxparsers8; \
         fi \
     fi && \
+    apt-get install -y nodejs && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
