@@ -151,8 +151,8 @@ RUN \
         pocl-opencl-icd \
         opencl-headers \
         ocl-icd-dev \
-        ocl-icd-opencl-dev && \
-        apt-get install -y nodejs \
+        ocl-icd-opencl-dev
+    RUN apt-get install -y nodejs \
     # Ensure TensorRT where applicable
     if [ -n "${CUDA_VERSION:-}" ]; then \
         CUDA_MAJOR_MINOR=$(echo ${CUDA_VERSION} | cut -d. -f1,2) && \
